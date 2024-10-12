@@ -23,14 +23,8 @@ public class Sudoku {
         }
 
         // Imprimindo a matriz inicial
-        for (int i = 0; i < matriz.length; i++) {
-            for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j] + " | ");
-            }
-            System.out.println();
-        }
-        System.out.println();
-
+        imprimirMatriz(matriz);
+        
         // Solicitando as posições e números ao usuário
         for (int k = 0; k < 10; k++) {
             System.out.println("Informe a linha (0-8) para inserir o número:");
@@ -50,11 +44,21 @@ public class Sudoku {
         }
 
         // Imprimindo a matriz atualizada
+        imprimirMatriz(matriz);
+    }
+
+    private static void imprimirMatriz(int[][] matriz) {
         for (int i = 0; i < matriz.length; i++) {
             for (int j = 0; j < matriz[i].length; j++) {
-                System.out.print(matriz[i][j] + " | ");
+                System.out.print(matriz[i][j] + " ");
+                if ((j + 1) % 3 == 0 && j < 8) {
+                    System.out.print("| ");
+                }
             }
             System.out.println();
+            if ((i + 1) % 3 == 0 && i < 8) {
+                System.out.println("------|-------|------");
+            }
         }
     }
 }
